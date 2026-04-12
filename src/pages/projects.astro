@@ -1,0 +1,137 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import { SITE } from "@/config";
+import IconGitHub from "@/assets/icons/IconGitHub.svg";
+
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  github?: string;
+  live?: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "codingathlete.com",
+    description:
+      "My personal website and blog built with Astro and Tailwind CSS. Minimal, fast, and SEO-friendly.",
+    tech: ["Astro", "Tailwind CSS", "TypeScript"],
+    github: "https://github.com/sebastianw93/sebwdo.me",
+    live: "https://codingathlete.com",
+  },
+  {
+    title: "FastAPI on ECS",
+    description:
+      "FastAPI project with automatic deployment to AWS ECS. Production-ready containerized API setup.",
+    tech: ["Python", "FastAPI", "AWS ECS", "Docker"],
+    github: "https://github.com/sebastianw93/fastapi-ecs",
+  },
+  {
+    title: "Confiq Backend",
+    description:
+      "Backend service built with Python for configuration management.",
+    tech: ["Python", "FastAPI"],
+    github: "https://github.com/sebastianw93/confiq-backend",
+  },
+  {
+    title: "URL Shortener",
+    description: "A URL shortening service built with Python.",
+    tech: ["Python"],
+    github: "https://github.com/sebastianw93/url_short_service",
+  },
+  {
+    title: "Task Tracker CLI",
+    description:
+      "CLI tool to manage tasks directly from the terminal. Built with Rust for speed and reliability.",
+    tech: ["Rust", "CLI"],
+    github: "https://github.com/sebastianw93/task_tracker",
+  },
+  {
+    title: "Whale API",
+    description:
+      "API to track movements of crypto whale wallets. Monitoring large transactions on the blockchain.",
+    tech: ["Python", "Blockchain", "API"],
+    github: "https://github.com/sebastianw93/whale-api-deprecated",
+  },
+  {
+    title: "FastAPI Project Template",
+    description:
+      "Opinionated Python FastAPI project template for bootstrapping new backend services quickly.",
+    tech: ["Python", "FastAPI", "Template"],
+    github: "https://github.com/sebastianw93/project-template",
+  },
+  {
+    title: "Enigma API",
+    description:
+      "API for encoding and decoding text, inspired by the Enigma machine.",
+    tech: ["Python", "API"],
+    github: "https://github.com/sebastianw93/EnigmaAPI",
+  },
+];
+---
+
+<Layout title={`Projects | ${SITE.title}`}>
+  <Header />
+  <Breadcrumb />
+  <main id="main-content" class="app-layout">
+    <section class="mb-28 max-w-app">
+      <h1 class="text-2xl tracking-wider sm:text-3xl">Projects</h1>
+      <p class="mt-4 mb-10 text-foreground/80">
+        A selection of things I've built — from backend APIs and DevOps
+        tooling to CLI utilities and experiments.
+      </p>
+      <ul class="grid gap-6">
+        {
+          projects.map(project => (
+            <li class="rounded-lg border border-border p-5 transition-colors hover:bg-foreground/5">
+              <div class="flex items-start justify-between gap-4">
+                <div class="min-w-0 flex-1">
+                  <h2 class="text-lg font-semibold text-foreground">
+                    {project.live ? (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="hover:text-accent"
+                      >
+                        {project.title}
+                      </a>
+                    ) : (
+                      project.title
+                    )}
+                  </h2>
+                  <p class="mt-1 text-sm text-foreground/70">
+                    {project.description}
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    {project.tech.map(t => (
+                      <span class="rounded-full border border-border px-2.5 py-0.5 text-xs text-foreground/60">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex-shrink-0 text-foreground/50 transition-colors hover:text-accent"
+                    title={`View ${project.title} on GitHub`}
+                  >
+                    <IconGitHub class="h-5 w-5" />
+                  </a>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+  <Footer />
+</Layout>

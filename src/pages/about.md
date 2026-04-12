@@ -3,35 +3,24 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+I'm Sebastian Wdowiarz — a Python software engineer based in Cracow, Poland, with 7+ years of experience building scalable backend systems. I work at [DO OK](https://www.dfrnt.com/), where I focus on creating life-changing software.
 
-![Astro Paper](public/astropaper-og.jpg)
+I believe the discipline you build through sport translates directly into how you write code — structured, resilient, and always pushing for improvement.
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+## What I Do
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+I specialize in backend engineering with Python and FastAPI, building APIs and services that are designed to scale. My day-to-day involves working with Docker, DevOps practices, and cloud infrastructure. I'm also exploring Rust and have a long-standing interest in blockchain technology.
 
-## Features
+Previously, I worked as a Software Development Engineer at Groupon.
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+## The Athlete Side
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+Outside of code, I train for CrossFit and Hyrox competitions, and I run and cycle regularly. The handle **@coding_athlete** reflects this dual identity — the same consistency and structure I bring to training, I bring to engineering.
 
-and so much more.
+## Tech Stack
 
-## Show your support
+Python · FastAPI · Docker · DevOps · PostgreSQL · Redis · Rust · Blockchain
 
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
+## Get in Touch
 
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
-
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
-
-Kyay zuu! 🙏🏼
+Find me on [GitHub](https://github.com/sebastianw93), [X](https://x.com/coding_athlete), [LinkedIn](https://www.linkedin.com/in/sebastian-wdowiarz-b5743483/), or drop me an [email](mailto:wdowiarzsebastian@gmail.com).
