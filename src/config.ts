@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://codingathlete.com/",
   author: "Sebastian Wdowiarz",
   profile: "https://codingathlete.com/about",
-  desc: "Python software engineer and athlete building scalable backend systems. CrossFit, Hyrox, running, cycling.",
+  desc: "Software engineer and athlete. Python backends, APIs and data. CrossFit, HYROX, running, cycling.",
   title: "CodingAthlete",
   ogImage: "og.png",
   lightAndDarkMode: true,
