@@ -1,31 +1,18 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Socials from "@/components/Socials.astro";
 import LinkButton from "@/components/LinkButton.astro";
-import Card from "@/components/Card.astro";
-import getSortedPosts from "@/utils/getSortedPosts";
-import IconRss from "@/assets/icons/IconRss.svg";
-import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
 import { SOCIALS } from "@/constants";
-
-const posts = await getCollection("blog");
-
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 ---
 
 <Layout>
   <Header />
   <main id="main-content" data-layout="index" class="app-layout">
-    <section
-      id="hero"
-      class="border-y-2 border-border py-8 sm:py-10"
-    >
+    <!-- Hero -->
+    <section id="hero" class="border-y-2 border-border py-8 sm:py-10">
       <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
         <div class="flex-shrink-0">
           <img
@@ -37,87 +24,138 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           />
         </div>
         <div class="min-w-0 flex-1">
-          <h1 class="my-2 inline-flex flex-wrap items-baseline gap-2 text-2xl font-bold sm:my-0 sm:text-3xl">
+          <h1 class="my-2 text-2xl font-bold sm:my-0 sm:text-3xl">
             Hi, I'm Sebastian
-            <a
-              target="_blank"
-              href="/rss.xml"
-              class="inline-block text-accent"
-              aria-label="RSS feed"
-              title="RSS Feed"
-            >
-              <IconRss
-                width={20}
-                height={20}
-                class="scale-125 stroke-current stroke-[3] rtl:-rotate-90"
-              />
-              <span class="sr-only">RSS Feed</span>
-            </a>
           </h1>
           <p class="mt-2 text-foreground/90">
-            Python software engineer and athlete based in Cracow. I build
-            scalable backend systems and train for CrossFit, Hyrox, and
-            endurance events. Sometimes I write about tech, sport, and
-            everything in between.
+            Software engineer and athlete. I build backends in Python. I race
+            HYROX Pro and run.
           </p>
-          {SOCIALS.length > 0 && (
-            <div class="mt-4 flex flex-wrap items-center gap-1">
-              <Socials />
-            </div>
-          )}
+          {
+            SOCIALS.length > 0 && (
+              <div class="mt-4 flex flex-wrap items-center gap-1">
+                <Socials />
+              </div>
+            )
+          }
+          <div class="mt-5 flex flex-wrap gap-3">
+            <LinkButton
+              href="/about"
+              class="rounded-md border border-border px-4 py-2 text-sm font-medium"
+            >
+              About
+            </LinkButton>
+            <LinkButton
+              href="mailto:wdowiarzsebastian@gmail.com"
+              class="rounded-md border border-border px-4 py-2 text-sm font-medium"
+            >
+              Get in touch
+            </LinkButton>
+          </div>
         </div>
       </div>
     </section>
 
-    {
-      featuredPosts.length > 0 && (
-        <section
-          id="featured"
-          class:list={[
-            "pt-12 pb-6",
-            { "border-b border-border": recentPosts.length > 0 },
-          ]}
+    <!-- What I do -->
+    <section id="what-i-do" class="py-10">
+      <h2 class="text-2xl font-semibold tracking-wide">What I do</h2>
+      <div class="mt-6 grid gap-6 sm:grid-cols-3">
+        <div class="rounded-lg border border-border p-5">
+          <h3 class="text-lg font-semibold">Backend &amp; APIs</h3>
+          <p class="mt-2 text-sm text-foreground/70">
+            Python and FastAPI. Designing and building services and APIs.
+          </p>
+        </div>
+        <div class="rounded-lg border border-border p-5">
+          <h3 class="text-lg font-semibold">Infra &amp; DevOps</h3>
+          <p class="mt-2 text-sm text-foreground/70">
+            Docker, AWS and Azure, Kubernetes, CI/CD.
+          </p>
+        </div>
+        <div class="rounded-lg border border-border p-5">
+          <h3 class="text-lg font-semibold">AI &amp; data</h3>
+          <p class="mt-2 text-sm text-foreground/70">
+            LLM apps with Langflow and Langfuse. Data pipelines.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="border-t border-border py-10">
+      <h2 class="text-2xl font-semibold tracking-wide">Experience</h2>
+      <ul class="mt-6 grid gap-6">
+        <li class="rounded-lg border border-border p-5">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="text-lg font-semibold">
+              Senior Software Engineer · DOOK
+            </h3>
+            <span class="text-sm text-foreground/60">Aug 2025 – Present</span>
+          </div>
+          <p class="mt-2 text-sm text-foreground/70">
+            Building newcode.ai, a generative-AI platform for legal teams —
+            document analysis, drafting and agentic workflows. Python, FastAPI,
+            Docker, Azure, Langflow, Langfuse.
+          </p>
+        </li>
+        <li class="rounded-lg border border-border p-5">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="text-lg font-semibold">
+              Senior Software Engineer · Payability
+            </h3>
+            <span class="text-sm text-foreground/60">Jul 2024 – Jun 2025</span>
+          </div>
+          <p class="mt-2 text-sm text-foreground/70">
+            Led a daily ingestion process loading data from external APIs into
+            AWS-hosted microservices. Python, FastAPI, AWS, PostgreSQL.
+          </p>
+        </li>
+        <li class="rounded-lg border border-border p-5">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="text-lg font-semibold">
+              Software Engineer, Blockchain · Bitpanda
+            </h3>
+            <span class="text-sm text-foreground/60">Apr 2021 – Jun 2024</span>
+          </div>
+          <p class="mt-2 text-sm text-foreground/70">
+            Built and maintained blockchain services across the Bitpanda
+            ecosystem. Python, Kafka, Kubernetes, AWS, Terraform.
+          </p>
+        </li>
+      </ul>
+      <div class="mt-6">
+        <LinkButton href="/about" class="text-sm font-medium text-accent">
+          Full experience →
+        </LinkButton>
+      </div>
+    </section>
+
+    <!-- The athlete -->
+    <section id="athlete" class="border-t border-border py-10">
+      <h2 class="text-2xl font-semibold tracking-wide">The athlete</h2>
+      <p class="mt-4 max-w-2xl text-foreground/80">
+        I train CrossFit and race HYROX Pro regularly. I ran a marathon in
+        3:27:50, and I cycle.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="border-t border-border py-10">
+      <h2 class="text-2xl font-semibold tracking-wide">Contact</h2>
+      <p class="mt-4 text-foreground/80">
+        Open to interesting work. Reach me on
+        <a
+          href="https://www.linkedin.com/in/sebastian-wdowiarz-b5743483/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent">LinkedIn</a
         >
-          <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
-          <ul>
-            {featuredPosts.map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="my-8 text-center">
-      <LinkButton href="/posts/">
-        All Posts
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
-    </div>
+        or by
+        <a href="mailto:wdowiarzsebastian@gmail.com" class="text-accent"
+          >email</a
+        >.
+      </p>
+    </section>
   </main>
   <Footer />
 </Layout>
-
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
-      ?.dataset?.layout;
-    if (indexLayout) {
-      sessionStorage.setItem("backUrl", "/");
-    }
-  });
-</script>
